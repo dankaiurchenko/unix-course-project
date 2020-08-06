@@ -13,10 +13,10 @@ function getmessage {
 function game {
 	local guessed=0
 	local numberoffiles=$( ls -l | wc -l )
+	echo "Enter the number of the files in the directory"
 
 	while [[ $guessed -eq 0 ]]
 	do 
-		echo "Enter the number of the files in the directory"
 		read number 
 		
 		if [[ $number -eq $numberoffiles ]]	
