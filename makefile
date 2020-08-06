@@ -6,6 +6,7 @@ README.md :
 	echo -n "The number of lines of code in the file is : **" >> README.md
 	grep -v -e "^$$" guessinggame.sh | wc -l >> README.md
 	echo "**" >> README.md
+	cp README.md index.md
 
 
 
