@@ -11,27 +11,23 @@ function getmessage {
 }
 
 function game {
-	local guessed=0
-	local numberoffiles=$( ls -l | wc -l )
+	local numberoffiles=$( ls -l | egrep "^-" |  wc -l )
 	echo "Enter the number of the files in the directory"
 
-	while [[ $guessed -eq 0 ]]
+	while true 
 	do 
 		read number 
-		
 		if [[ $number -eq $numberoffiles ]]	
 		then 
 			echo "The number of files is right! Congratulations!"
-			let guessed=1
+			break
 		elif [[ $number =~ [^0-9] ]]
 			then echo "please, enter a natural number N (N >= 0)" 
 		else 
 			message=$( getmessage $number $numberoffiles )
 			echo "A number is $message"
 		fi
-done 
+	done 
 }
 
 game
-
-
